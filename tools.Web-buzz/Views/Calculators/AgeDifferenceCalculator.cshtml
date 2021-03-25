@@ -2,17 +2,35 @@
 @{
     ViewBag.Title = "AgeDifferenceCalculator";
 }
+@using (Html.BeginForm())
+{
+    <h2>Age Difference Calculator</h2>
 
-<h2>Age Difference Calculator</h2>
-
-<div class="container">
-    <div class="row">
-        <div class="form-group table-bordered col-sm-8">
-            <label for="example-text-input" class="col-2 col-form-label">Birth Date 1</label>
-            <input class="date-picker" />
-            @Html.TextBox("YourTextBox", "", new { @class = "date-picker" })
+    <div class="container">
+        <div class="row">
+            <div class="form-group table-bordered col-sm-8">
+                <label for="example-text-input" class="col-2 col-form-label">Birth Date 1</label>
+                <input class="date-picker" />
+                @Html.TextBox("YourTextBox", "", new { @class = "date-picker" })
+            </div>
         </div>
     </div>
-</div>
+}
 
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
+@section scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        $(function () {
+            $(".date-picker").datepicker({
+                dateFormat: "yy/mm/dd",
+                changeMonth: true,
+                changeYear: true,
+                showOn: "both",
+                buttonText : "<i class='fa fa-calender'></i>"
+            });
+        });
+    </script>
+}
