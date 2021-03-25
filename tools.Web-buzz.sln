@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tools.Web-buzz", "tools.Web-buzz\tools.Web-buzz.csproj", "{4178D718-C5C1-47A5-AFE2-07FE7AA0EC08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4178D718-C5C1-47A5-AFE2-07FE7AA0EC08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4178D718-C5C1-47A5-AFE2-07FE7AA0EC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4178D718-C5C1-47A5-AFE2-07FE7AA0EC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4178D718-C5C1-47A5-AFE2-07FE7AA0EC08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {954FEE74-B53B-473F-ADE4-830E52F5D9A9}
+	EndGlobalSection
+EndGlobal
