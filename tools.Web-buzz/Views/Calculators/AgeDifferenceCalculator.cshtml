@@ -6,10 +6,13 @@
 <h2>Age Difference Calculator</h2>
 
 <div class="container">
-    <div class="form-group bg-info table-bordered col-sm-8">
-        <label for="example-text-input" class="col-2 col-form-label">Birth Date 1</label>
+    <div class="row">
+        <div class="form-group table-bordered col-sm-8">
+            <label for="example-text-input" class="col-2 col-form-label">Birth Date 1</label>
+            <input class="date-picker" />
+            @Html.TextBox("YourTextBox", "", new { @class = "date-picker" })
+        </div>
     </div>
-        
 </div>
 
 
