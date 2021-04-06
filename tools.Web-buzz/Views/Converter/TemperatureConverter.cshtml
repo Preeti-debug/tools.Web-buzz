@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "TemperatureConverter";
+}
+
+<div class="container weightConverter" style="padding:30px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1 class="display-4 mb-3"> Temperature Converter</h1>
+            <form>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input id="lbsInput" type="number" class="form-control form-group-lg" placeholder="Enter Value....." />
+                        </div>
+                        <div class="col-lg-6">
+                            <select class="form-control" id="unit" onchange="BindTempConvertedValues()">
+                                <option value="celsius">Celsius</option>
+                                <option value="kelvin">Kelvin</option>
+                                <option value="fahrenheit">Fahrenheit</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+

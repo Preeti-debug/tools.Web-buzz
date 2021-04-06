@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "WeightConverter";
+}
+
+<div class="container weightConverter" style="padding:30px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1 class="display-4 mb-3"> Weight Converter</h1>
+            <form>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input id="lbsInput" type="number" class="form-control form-group-lg" placeholder="Enter Value....." />
+                        </div>
+                        <div class="col-lg-6">
+                            <select class="form-control" id="unit" onchange="BindWeightConvertedValues()">
+                                <option value="tonne">tonne</option>
+                                <option value="Kilogram">Kilogram</option>
+                                <option value="gram">Gram</option>
+                                <option value="miligram">MiliGram</option>
+                                <option value="microgram">Microgram</option>
+                                <option value="ImT">Imperial ton</option>
+                                <option value="usTon">US ton</option>
+                                <option value="stone">Stone</option>
+                                <option value="pound">Pound</option>
+                                <option value="ounce">Ounce</option>
+                            </select>
+                        </div>
+                    </div>                  
+                </div>
+            </form>
+            <div id="output">
+                <div class="card card-primary">
+                    <div class="card-block">
+                        <h4>tonne:</h4>
+                        <div id="tonneOutput"></div>
+                    </div>
+                </div>
+                <div class="card card-success">
+                    <div class="card-block">
+                        <h4>KiloGrams:</h4>
+                        <div id="kgOutput"></div>
+                    </div>
+                </div>
+                <div class="card card-danger">
+                    <div class="card-block">
+                        <h4>Grams:</h4>
+                        <div id="gramsOutput"></div>
+                    </div>
+                </div>
+                <div class="card card-info">
+                    <div class="card-block">
+                        <h4>MiliGram:</h4>
+                        <div id="mlgOutput"></div>
+                    </div>
+                </div>
+                <div class="card card-warning">
+                    <div class="card-block">
+                        <h4>Microgram:</h4>
+                        <div id="mcgOutput"></div>
+                    </div>
+                </div>
+                <div class="card card-primary">
+                    <div class="card-block">
+                        <h4>Imperial ton:</h4>
+                        <div id="ImTOutput"></div>
+                    </div>
+                </div>
+                <div class="card card-success">
+                    <div class="card-block">
+                        <h4>US ton:</h4>
+                        <div id="ustonOutput"></div>
+                    </div>
+                </div>
+                <div class="card card-danger">
+                    <div class="card-block">
+                        <h4>Stone:</h4>
+                        <div id="stoneOutput"></div>
+                    </div>
+                </div>
+                <div class="card card-info">
+                    <div class="card-block">
+                        <h4>Pound:</h4>
+                        <div id="poundOutput"></div>
+                    </div>
+                </div>
+                <div class="card card-warning">
+                    <div class="card-block">
+                        <h4>Ounce:</h4>
+                        <div id="ozOutput"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    document.getElementById("lbsInput").addEventListener('input', function (e) {
+        BindWeightConvertedValues();        
+    });
+
+    function BindWeightConvertedValues() {
+        let unit = $('#unit').val();
+        let val = $('#lbsInput').val();
+        //console.log(val);
+        if (val != "") {
+            $("#output").css('display', 'block');
+            $.getJSON("/api/ConverterAPI/GetConvertedWeights?unitInput=" + unit + "&valueInput=" + val + "", function (data) {
+                //console.log(data.Grams);
+                document.getElementById("tonneOutput").innerHTML = data.tonne;
+                document.getElementById("kgOutput").innerHTML = data.KiloGrams;
+                document.getElementById("gramsOutput").innerHTML = data.Grams;
+                document.getElementById("mlgOutput").innerHTML = data.MiliGram;
+                document.getElementById("mcgOutput").innerHTML = data.Microgram;
+                document.getElementById("ImTOutput").innerHTML = data.ImperialTon;
+                document.getElementById("ustonOutput").innerHTML = data.USTon;
+                document.getElementById("stoneOutput").innerHTML = data.Stone;
+                document.getElementById("poundOutput").innerHTML = data.Pound;
+                document.getElementById("ozOutput").innerHTML = data.Ounce;
+            })
+        }
+        else {
+            $("#output").css('display','none');
+        }
+       
+    }
+</script>

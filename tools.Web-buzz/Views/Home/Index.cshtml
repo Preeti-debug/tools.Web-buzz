@@ -3,21 +3,64 @@
 }
 
 
-    <div class="container" style="padding: 15px;">
-        <div class="row">
-            <div class="col-sm-3">
-                <button type="button" class="btn btn-primary btn-block">Calculators</button>
-                <h3>Time</h3>
-                <a href='@Url.Action("AgeDifferenceCalculator", "Calculators")'>Age Difference Calculator</a><br />
-                <a href='@Url.Action("About", "Home")'>Days Calculator</a><br />
+<div class="container" style="padding: 15px;">
+    <div class="row">
+        <div class="col-sm-3">
+            <button type="button" class="btn btn-primary btn-block">Calculators</button>
+            <h3>Time</h3>
+            <a href='@Url.Action("AgeDifferenceCalculator", "Calculators")'>Age Difference Calculator</a><br />
+            <a href='@Url.Action("About", "Home")'>Days Calculator</a><br />
 
-                <h3>Math</h3>
-                <a href='@Url.Action("About", "Home")'>Factorial Calculator</a><br />
-                <a href='@Url.Action("About", "Home")'>Percentage Calculator</a><br />
+            <h3>Math</h3>
+            <a href='@Url.Action("About", "Home")'>Factorial Calculator</a><br />
+            <a href='@Url.Action("About", "Home")'>Percentage Calculator</a><br />
+        </div>
+        <div class="col-sm-3">
+            <button type="button" class="btn btn-primary btn-block">Convertors</button>
+            <a href='#'>Area Converter</a><br />
+            <a href='#'>Data Transfer Rate Converter</a><br />
+            <a href='#'>Digital Storage Converter</a><br />
+            <a href='#'>Energy Converter</a><br />
+            <a href='#'>Frequency Converter</a><br />
+            <a href='#'>Fuel Economy Converter</a><br />
+            <a href='#'>Length Converter</a><br />
+            <a href='@Url.Action("WeightConverter", "Converter")'>weight Converter</a><br />
+            <a href='#'>Speed Converter</a><br />
+            <a href='@Url.Action("TemperatureConverter", "Converter")'>Temperature Converter</a><br />
+            <a href='#'>Time Converter</a><br />
+            <a href='#'>Volume Converter</a><br />
+        </div>
+        <div class="col-sm-3">
+            <button type="button" class="btn btn-primary btn-block">Calculators</button>
+        </div>
+        <div class="col-sm-3">.col-sm-3</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pull-left">
+                <p> <b id="noOfVisitors">@ViewData["visitors"]</b> <span id="visitorsText"> @ViewData["visitors_txt"] </span> </p>
             </div>
-            <div class="col-sm-3"><button type="button" class="btn btn-primary btn-block">Convertors</button></div>
-            <div class="col-sm-3"><button type="button" class="btn btn-primary btn-block">Calculators</button></div>
-            <div class="col-sm-3">.col-sm-3</div>
         </div>
     </div>
+</div>
 
+<script>
+
+                // Enable pusher logging - don't include this in production
+                Pusher.logToConsole = true;
+
+                var pusher = new Pusher('PUSHER_APP_KEY', {
+                    cluster:'PUSHER_APP_CLUSTER'
+                });
+
+                var channel = pusher.subscribe('general');
+
+                channel.bind('newVisit', function(data) {
+
+                  var visits = data.visits;
+                  var message = data.message;
+                  $('#noOfVisitors').text( visits );
+                  $('#visitorsText').text( message );
+                });
+</script>
