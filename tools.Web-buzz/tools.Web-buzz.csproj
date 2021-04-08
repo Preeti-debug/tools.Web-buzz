@@ -137,6 +137,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Converter\LengthConverterModel.cs" />
     <Compile Include="Models\Converter\TemperatureConverterModel.cs" />
     <Compile Include="Models\Converter\WeightConverterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,6 +195,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -224,6 +226,7 @@
     <Content Include="Views\Calculators\AgeDifferenceCalculator.cshtml" />
     <Content Include="Views\Converter\WeightConverter.cshtml" />
     <Content Include="Views\Converter\TemperatureConverter.cshtml" />
+    <Content Include="Views\Shared\_ConverterTools.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

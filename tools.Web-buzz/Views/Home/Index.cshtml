@@ -3,18 +3,8 @@
 }
 
 
-<div class="container" style="padding: 15px;">
+<div class="container" style="padding: 33px;">
     <div class="row">
-        <div class="col-sm-3">
-            <button type="button" class="btn btn-primary btn-block">Calculators</button>
-            <h3>Time</h3>
-            <a href='@Url.Action("AgeDifferenceCalculator", "Calculators")'>Age Difference Calculator</a><br />
-            <a href='@Url.Action("About", "Home")'>Days Calculator</a><br />
-
-            <h3>Math</h3>
-            <a href='@Url.Action("About", "Home")'>Factorial Calculator</a><br />
-            <a href='@Url.Action("About", "Home")'>Percentage Calculator</a><br />
-        </div>
         <div class="col-sm-3">
             <button type="button" class="btn btn-primary btn-block">Convertors</button>
             <a href='#'>Area Converter</a><br />
@@ -32,35 +22,46 @@
         </div>
         <div class="col-sm-3">
             <button type="button" class="btn btn-primary btn-block">Calculators</button>
+            <h3>Time</h3>
+            <a href='@Url.Action("AgeDifferenceCalculator", "Calculators")'>Age Difference Calculator</a><br />
+            <a href='@Url.Action("About", "Home")'>Days Calculator</a><br />
+
+            <h3>Math</h3>
+            <a href='@Url.Action("About", "Home")'>Factorial Calculator</a><br />
+            <a href='@Url.Action("About", "Home")'>Percentage Calculator</a><br />
+        </div>
+
+        <div class="col-sm-3">
+            @Html.Partial("_ConverterTools")
         </div>
         <div class="col-sm-3">.col-sm-3</div>
     </div>
     <br>
-    <div class="row">
+    @*<div class="row">
         <div class="col-md-12">
             <div class="pull-left">
                 <p> <b id="noOfVisitors">@ViewData["visitors"]</b> <span id="visitorsText"> @ViewData["visitors_txt"] </span> </p>
             </div>
         </div>
-    </div>
+    </div>*@
 </div>
 
 <script>
 
-                // Enable pusher logging - don't include this in production
-                Pusher.logToConsole = true;
+                //// Enable pusher logging - don't include this in production
+                //Pusher.logToConsole = true;
 
-                var pusher = new Pusher('PUSHER_APP_KEY', {
-                    cluster:'PUSHER_APP_CLUSTER'
-                });
+                //var pusher = new Pusher('PUSHER_APP_KEY', {
+                //    cluster:'PUSHER_APP_CLUSTER'
+                //});
 
-                var channel = pusher.subscribe('general');
+                //var channel = pusher.subscribe('general');
 
-                channel.bind('newVisit', function(data) {
+                //channel.bind('newVisit', function(data) {
 
-                  var visits = data.visits;
-                  var message = data.message;
-                  $('#noOfVisitors').text( visits );
-                  $('#visitorsText').text( message );
-                });
+                //  var visits = data.visits;
+                //  var message = data.message;
+                //  $('#noOfVisitors').text( visits );
+                //  $('#visitorsText').text( message );
+                //});
 </script>
